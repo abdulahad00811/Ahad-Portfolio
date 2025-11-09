@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Analytics } from "@vercel/analytics/next"
+// import { Analytics } from "@vercel/analytics/next"
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./Component/Navbar/Navbar";
 import Home from "./Component/Navbar/pages/Home";
@@ -8,6 +8,7 @@ import Projects from "./Component/Navbar/pages/Projects";
 import Contact from "./Component/Navbar/pages/Contact";
 import Footer from "./Component/Navbar/pages/Footer";
 import FollowPopup from "./Component/Navbar/pages/FollowPopup";
+import { Analytics } from "@vercel/analytics/react";
 // import AdminPanel from "./Component/Navbar/pages/AdminPanel";
 
 const App = () => {
@@ -30,7 +31,7 @@ const App = () => {
             <Contact /> 
             <Footer />
             <FollowPopup />
-            <Analytics/>
+            <Analytics />
           </>
         }
       />
