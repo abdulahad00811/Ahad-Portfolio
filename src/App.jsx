@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Analytics } from "@vercel/analytics/next"
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./Component/Navbar/Navbar";
 import Home from "./Component/Navbar/pages/Home";
@@ -29,6 +30,7 @@ const App = () => {
             <Contact /> 
             <Footer />
             <FollowPopup />
+            <Analytics/>
           </>
         }
       />
