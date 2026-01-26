@@ -74,41 +74,75 @@
   display: inline-block;
   text-decoration: none;
 }
- .get-in-touch .whatsapp-icon{
+
+.get-in-touch .whatsapp-icon {
   font-size: 1.7em;
   margin-top: 0px;
- margin-bottom: 3px;
+  margin-bottom: 3px;
 }
-/* .get-in-touch .btn-btn-primary-whatsapp-button{
-font-size: 1.7em;
-background-color: #2ead4f;
-text-align: center;
-justify-content: center;
-text-decoration: none;
-font-family: 'Courier New', Courier, monospace;
-border-radius: 12px;
-color: #f0f0f0; */
-/* } */
 
-.btn-primary:hover {
-  background: #259344;
+/* WhatsApp button responsive */
+.whatsapp-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background-color: #2ead4f;
+  color: white;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  width: 100%;
+  max-width: 460px;
+  padding: 14px 24px;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  box-shadow: 0 8px 15px rgb(46 173 79 / 0.6);
+}
+
+.whatsapp-button:hover {
+  background-color: #259344;
   transform: translateY(-3px);
 }
 
+.whatsapp-icon {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+/* Social icons container */
 .social-links {
   margin-top: 35px;
   display: flex;
   gap: 28px;
 }
 
-.social-links a {
-  color: #2ead4f;
-  font-size: 2.4rem;
-  transition: color 0.3s ease;
+/* Social icons with official brand colors */
+.social-links a.github-link {
+  color: #181717; /* GitHub official black */
 }
 
-.social-links a:hover {
-  color: #1b6d2b;
+.social-links a.linkedin-link {
+  color: #0A66C2; /* LinkedIn official blue */
+}
+
+.social-links a.x-link {
+  color: #1f2020; /* Twitter/X official blue */
+}
+
+/* Hover states for social icons */
+.social-links a.github-link:hover {
+  color: #555555;
+}
+
+.social-links a.linkedin-link:hover {
+  color: #004182;
+}
+
+.social-links a.x-link:hover {
+  color: #0d8ddb;
 }
 
 .hero-right {
@@ -119,13 +153,7 @@ color: #f0f0f0; */
   align-items: center;
 }
 
-/* .image-container {
-  border: 6px solid #2ead4f;
-  border-radius: 15%;
-  padding: 6px;
-  box-shadow: 0 8px 20px rgba(46, 173, 79, 0.3);
-  transition: transform 0.4s ease;
-} */
+/* Image container styling */
 .image-container {
   width: 100%;
   height: 100%;
@@ -137,8 +165,8 @@ color: #f0f0f0; */
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fff; /* Optional: if you want white behind image */
-  border: 6px solid #2ead2e; /* desired border */
+  background: #fff;
+  border: 6px solid #2ead2e;
   box-sizing: border-box;
 }
 
@@ -150,20 +178,13 @@ color: #f0f0f0; */
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: cover;    /* cropped (no white gap) */
-  border-radius: 18px;  /* optional: slightly smaller than outer for layered effect, else same as .image-container */
+  object-fit: cover;
+  border-radius: 18px;
   margin: 0;
   padding: 0;
 }
 
-/* .hero-section-image {
-  width: 100%;
-  height: auto;
-  border-radius: 10%;
-  object-fit: cover;
-} */
-
-/* Responsive */
+/* Responsive styles */
 @media (max-width: 1024px) {
   .hero-section {
     padding: 40px 40px;
@@ -183,6 +204,15 @@ color: #f0f0f0; */
   .hero-left, .hero-right {
     max-width: 100%;
     flex: none;
+  }
+  /* Important: make photo above get-in-touch */
+  .hero-right {
+    order: -1;
+    margin-bottom: 20px;
+  }
+  .get-in-touch {
+    order: 1;
+    margin-bottom: 20px;
   }
   .skills {
     justify-content: center;
@@ -204,23 +234,28 @@ color: #f0f0f0; */
     padding: 12px 28px;
     font-size: 1rem;
   }
+  .whatsapp-button {
+    max-width: 95vw;
+    padding: 12px 8px;
+    font-size: 1rem;
+  }
 }
 
-/* 🌙 DARK MODE for home / hero section */
+/* Dark mode (optional) */
 .dark .hero-section {
   background: linear-gradient(#0d1117 0%, #1a1a1a 100%);
 }
 
 .dark .section-title {
-  color: #2ead4f; /* Accent green */
+  color: #2ead4f;
 }
 
 .dark .hero-section-title {
-  color: #f0f0f0; /* Light text */
+  color: #f0f0f0;
 }
 
 .dark .hero-section-description {
-  color: #ccc; /* Muted light text */
+  color: #ccc;
 }
 
 .dark .btn {
@@ -236,35 +271,3 @@ color: #f0f0f0; */
 .dark .hero-section-image {
   box-shadow: 0 4px 24px rgba(46, 173, 79, 0.3);
 }
-
-/* Doubled width WhatsApp-style button */
-.whatsapp-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  background-color: #2ead4f;
-  color: white;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
-  width: 460px; /* Increased width (default was ~140px, now doubled) */
-  padding: 14px 24px;
-  border-radius: 30px;
-  font-size: 1.1rem;
-  font-weight: 700;
-  box-shadow: 0 8px 15px rgb(46 173 79 / 0.6);
-}
-
-.whatsapp-button:hover {
-  background-color: #259344;
-  transform: translateY(-3px);
-}
-
-.whatsapp-icon {
-  font-size: 1.5rem;
-  margin-bottom: 5px;
-}
-
-

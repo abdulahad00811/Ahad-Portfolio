@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Home.css";
-import Myimage from "../../../assets/Myimage.jpg";
-import { FaGithub, FaLinkedin, FaTwitter, FaWhatsapp } from "react-icons/fa";
+import Myimage from "../../../assets/portfolio-img.png";
+import { FaGithub, FaLinkedin, FaWhatsapp, FaRobot } from "react-icons/fa";
+import { SiX } from "react-icons/si"; 
 
 export default function Home() {
+  const [showChatBot, setShowChatBot] = useState(false);
+
   return (
     <section id="home" className="hero-section">
       <div className="hero-left">
@@ -39,14 +42,14 @@ export default function Home() {
             </a>
           </div>
           <div className="social-links">
-            <a href="https://github.com/CodingWithAhad" target="_blank" rel="noreferrer">
-              <FaGithub />
+            <a href="https://github.com/CodingWithAhad" target="_blank" rel="noreferrer" className="github-link">
+              <FaGithub style={{ fill: "#181717" }}/>
             </a>
-            <a href="https://linkedin.com/in/abdulahad-devloper" target="_blank" rel="noreferrer">
-              <FaLinkedin />
+            <a href="https://linkedin.com/in/abdulahad-devloper" target="_blank" rel="noreferrer" className="linkedin-link">
+              <FaLinkedin style={{ fill: "#0A66C2" }} />
             </a>
-            <a href="https://twitter.com/oye-abdul" target="_blank" rel="noreferrer">
-              <FaTwitter />
+            <a href="https://twitter.com/oye-abdul" target="_blank" rel="noreferrer" className="x-link">
+              <SiX style={{ fill: "#181717" }} />
             </a>
           </div>
         </div>
@@ -56,7 +59,55 @@ export default function Home() {
           <img src={Myimage} alt="Abdul Ahad" className="hero-section-image" />
         </div>
       </div>
-      {/* Chatbot se related button aur popup yahan se hata diya gaya hai */}
+
+      {/* Floating Chatbot Button */}
+      <button
+        onClick={() => setShowChatBot(true)}
+        style={{
+          position: "fixed",
+          bottom: 80,
+          right: 23,
+          width: 54,
+          height: 54,
+          borderRadius: "50%",
+          backgroundColor: "#4caf50",
+          color: "#fff",
+          border: "none",
+          cursor: "pointer",
+          zIndex: 1000,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontSize: 28,
+          boxShadow: "0 4px 12px rgba(0,0,0,0.18)"
+        }}
+        title="Chatbot"
+      >
+        <FaRobot />
+      </button>
+
+      {/* Chatbot Popup */}
+      {showChatBot && (
+        <div
+          style={{
+            position: "fixed",
+            bottom: 90,
+            right: 24,
+            width: 350,
+            height: 480,
+            border: "1px solid #ccc",
+            backgroundColor: "white",
+            zIndex: 2001,
+            borderRadius: 10,
+            boxShadow: "0 4px 16px rgba(0,0,0,0.22)",
+            display: "flex",
+            flexDirection: "column"
+          }}
+        >
+          <ChatBot onClose={() => setShowChatBot(false)} />
+        </div>
+      )}
     </section>
   );
 }
+
